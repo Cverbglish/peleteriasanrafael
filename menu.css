@@ -1,0 +1,370 @@
+:root{
+    /*COLORES PRINCIPALES*/
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #0214b6;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+    --textNos: #000;
+
+    /*TRANSICIONES DE LA BARRA*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+    --tran-06: all 0.8s ease;
+}
+
+body{
+    height: 100vh;
+    background: var(--body-color); /*Asignación de una variable del selector :root (Establece el color de fondo)*/
+    transition: var(--tran-02); /*Realiza una transición de 0.2 segundos*/
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body.dark{ /*Colores para el modo oscuro*/
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #ff0000;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #fff;
+    --textNos: #fff;
+}
+
+/*=== REUTILIZABLE CSS ===*/
+.sidebar .text{
+    font-size: 16px; /*Tamaño del texto*/
+    font-weight: 500; /*Grosor de las letras*/
+    color: var(--text-color); /*Asignación de una variable del selector :root*/
+    transition: var(--tran-06); /*Realiza una transición de 0.8 segundos*/
+    white-space: nowrap; /*espacio en blanco (El texto nunca pasa a la siguiente linea)*/
+}
+
+.sidebar .image{ /*Propiedades de la imagen en la barra*/
+    min-width: 60px; /*Determinación del ancho minimo del elemento*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+    justify-content: center; /*Alinea los elementos horizontalmente*/
+}
+
+/* === BARRA DESPLEGABLE ===*/
+.sidebar{ /*Tamaño y especificaciones de la barra desplegable de navegación*/
+    position: fixed; /*Propiedad para que el elemento quede en una posición fija mientras el navegante viaja por la página*/
+    top: 0; /*Posición del lado superior*/
+    left: 0; /*Posicion del lado izquierdo*/
+    height: 100%; /*Dimensión alta del elemento*/
+    width: 250px; /*Dimensión ancha del elemento*/
+    padding: 10px 14px; /*Campo del elemento*/
+    background: var(--sidebar-color); /*Asignación de una variable del selector :root*/
+    transition: var(--tran-05); /*Transición del elemento en 0.5 segundos*/
+    z-index: 100; /*Posición en capas del elemento*/
+}
+
+.sidebar.close{ /*Ancho de la barra al cerrar*/
+    width: 88px;
+}
+
+.sidebar.close .text{ /*Opacidad y tamaño del texto al cerrar*/
+    opacity: 0;
+    font-size: 5px;
+}
+
+
+.sidebar li{ /*Propiedades de la lista de elementos*/
+    height: 50px; /*Dimensión alta del elemento*/
+    margin-top: 10px; /*Separación del lado superior del elemento*/
+    list-style: none; /*Quita el tipo o estilo de enlistado*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+}
+
+.sidebar li .icon{ /*Edita las propiedades de los iconos (barra desplagable)*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+    justify-content: center; /*Alinea los elementos horizontalmente*/
+    min-width: 60px; /*Determinación del ancho minimo del elemento*/
+    font-size: 20px; /*Tamaño del texto*/
+}
+
+.sidebar li .icon,
+.sidebar li .text{ /*Edición para el cambio de color*/
+    color: var(--text-color);
+    transition: var(--tran-02); /*Transición del elemento en 0.2 segundos*/
+}
+
+.sidebar header{ /*posición de la barra*/
+    position: relative; /*Coloca el elemento en su posición normal, y a partir de ahí lo podemos desplazar la distancia que le indiquemos*/
+}
+
+.sidebar .image-text img{ /*Acomodo y borde de la imagen de la Barra*/
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text{ /*alineación de los elementos*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+}
+
+header .image-text .header-text{ /*Acomodo tipo columna*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    flex-direction: column; /*Determina la dirección en que se ordenarán los elementos en el espacio.*/
+}
+
+.header-text .name{ /*Tamaño de ancho del texto en la barra*/
+    font-weight: 500;
+}
+
+.header-text .profession{ /*Margen del texto secundario*/
+    margin-top: -2px; /*Espacio del lado superior del elemento*/
+}
+
+.sidebar header .toggle{ /*Propiedades del elemento toggle (Boton de desplazar)*/
+    position: absolute; /*se elimina del flujo normal de documentos. Se posiciona automáticamente en el punto de inicio (top-left esquina) de su elemento padre*/
+    top: 50%; /*Posición del lado superior*/
+    right: -25px; /*Posición del lado derecho*/
+    transform: translateY(-50%) rotate(180deg); /*Rota el elemento a su lado contrario*/
+    height: 26px; /*Dimensión alta del elemento*/
+    width: 25px; /*Dimensión ancha del elemento*/
+    background: var(--primary-color); /*Color de fondo obtenido de una variable*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+    justify-content: center; /*Alinea los elementos horizontalmente*/
+    border-radius: 50%; /*Redondea el borde dependiendo de la especificación*/
+    color: var(--sidebar-color); /*Color de la flecha*/
+    font-size: 22px; /*Tamaño de la flecha*/
+    transition: var(--tran-03) /*Transicion del elemento en 0.3 segundos*/
+}
+
+.sidebar.close header .toggle{ /*Desplazamiento*/
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{ /*Color del texto en modo oscuro*/
+    color: var(--text-color);
+}
+
+
+.sidebar .search-box{ /*Edición de la barra de busqueda*/
+    background: var(--primary-color-light);
+    border-radius: 6px; /*borde redondeado*/
+    transition: var(--tran-05); /*transición del elemento en 0.5 segundos*/
+}
+
+.search-box input{ /*Diseño a la caja input (barra de busqueda)*/
+    height: 100%; /*Dimensión alta del elemento*/
+    width: 100%; /*Dimensión ancha del elemento*/
+    outline: none; /*No se dibuja ningun borde*/
+    border: none; /*No contiene un borde*/
+    border-radius: 6px; /*Borde redondeado*/
+    font-size: 16px; /*Tamaño del texto*/
+    font-weight: 500; /*Ancho de las letras*/
+    background: var(--primary-color-light);
+    transition: var(--tran-05); /*Transición del elemento en 0.5 segundos*/
+}
+
+body.dark .search-box input{ /*Cambia el color de letra de la barra al estar en modo oscuro*/
+    color: #FFF;
+}
+
+body.dark .customer-support i{
+    color: #FFF;
+}
+
+body.dark .precio-item {
+    color: #FFF;
+}
+
+body.dark .titulo-item{
+    color: #FFF;
+}
+
+body.dark .t{
+    color: #FFF;
+}
+
+body.dark .carrito-item-titulo{
+    color: #FFF;
+}
+
+body.dark .carrito-item-precio{
+    color: #FFF;
+}
+
+body.dark .carrito-item-cantidad {
+    color: #FFF;
+}
+
+body.dark .carrito-item i{
+    color: #FFF;
+}
+
+.sidebar li a{ /*Propiedades de la liga que desplaza el navegante (Lista)*/
+    height: 100%; /*Dimensión alta del elemento*/
+    width: 100%; /*Dimensión ancha del elemento*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+    text-decoration: none; /*Quitamos el formato subrayado del texto*/
+    border-radius: 6px; /*Genera un borde redondo*/
+    transition: var(--tran-04); /*Transición del elemento en 0.4 segundos*/
+}
+
+.sidebar li a:hover{ /*Acción al pasar el cursor en el elemento (Botón de la sección)*/
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{ /*Valor del color*/
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{/*Valor del color al estar en modo oscuro*/
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px); /*Cálculo para determinar el valor de la propiedad altura*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    flex-direction: column; /*Determina la dirección en que se ordenarán los elementos en el espacio*/
+    justify-content: space-between; /*Los elementos between css repartirán el espacio sobrante de su contenedor de manera equitativa entre ellos.*/
+}
+
+/*=== Switch para el tema oscuro y claro ===*/
+.menu-bar .mode{
+    position: relative; /*Coloca el elemento en su posición normal, y a partir de ahí lo podemos desplazar la distancia que le indiquemos*/
+    border-radius: 6px; /*Genera un borde redondo a la caja del switch*/
+    background: var(--primary-color-light);
+}
+
+.menu-bar .mode .moon-sun{ /*Propiedades de los iconos claro y oscuro*/
+    height: 50px; /*Dimensión alta del elemento*/
+    width: 60px; /*Dimensión ancha del elemento*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+}
+
+.menu-bar .mode i{
+    position: absolute; /*Posición absoluta al elemento listado*/
+}
+
+.menu-bar .mode i .sun{ /*ocultamiento del icono tema claro*/
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{ /*icono claro aparición*/
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{ /*Icono oscuro desaparición*/
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{ /*Propiedades del contenedor del switch*/
+    position: absolute; /*Se elimina del flujo normal de documentos. Se posiciona automáticamente en el punto de inicio (top-left esquina) de su elemento padre*/
+    display: flex; /*indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible*/
+    align-items: center; /*centra los elementos hijo de un contendor*/
+    right: 0; /*Posición de la parte derecha del elemento*/
+    justify-content: center; /*Alinea los elementos horizontalmente*/
+    height: 100%; /*Dimensión alta del elemento*/
+    min-width: 60px; /*Determinación del ancho minimo del elemento*/
+    cursor: pointer; /*Cambia el tipo del cursor a una mano apuntando*/
+    border-radius: 6px; /*Genera un borde redondo*/
+    background: var(--primary-color-light);
+}
+
+.toggle-switch .switch{ /*Propiedades del switch*/
+    position: relative; /*Coloca el elemento en su posición normal, y a partir de ahí lo podemos desplazar la distancia que le indiquemos*/
+    height: 22px; /*Dimensión alta del elemento*/
+    width: 44px; /*Dimensión ancha del elemento*/
+    border-radius: 25px; /*Genera un borde más redondo*/
+    background: var(--toggle-color);
+}
+
+.switch::before{ /*Bolita o indicador de encendido y apagado*/
+    content: '';
+    position: absolute; /*Se elimina del flujo normal de documentos. Se posiciona automáticamente en el punto de inicio (top-left esquina) de su elemento padre*/
+    height: 15px; /*Dimensión alta del elemento*/
+    width: 15px; /*Dimensión ancha del elemento*/
+    border-radius: 50%; /*Genera un borde redondo (Circulo)*/
+    top: 50%; /*Posición de la parte superior del elemento*/
+    left: 5px; /*Posición de la parte izquierda del elemento*/
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03); /*Transición del elemento en 0.3 segundos*/
+}
+
+body.dark .switch::before{
+    left: 24px; /*Posición de la parte izquierda del elemento*/
+}
+
+/*============ SECCIÓN RESTANTE (CUERPO) =============*/
+
+.home{ /*GENERAREMOS UNA RESPONSIVIDAD AL DESPLAZAR LA BARRA CON EL CONTENIDO*/
+    position: relative; /*Coloca el elemento en su posición normal, y a partir de ahí lo podemos desplazar la distancia que le indiquemos*/
+    left: 250px; /*Posición de la parte izquierda del elemento*/
+    height: 100vh; /*Dimensión alta del elemento*/
+    width: calc(100% - 250px); /*Cálculo para determinar el valor de la propiedad ancho*/
+    background:  var(--body-color);
+    transition: var(--tran-05); /*Tranisición del elemento (Contenedor) de 0.5 segundos*/
+}
+
+.home .text{
+    text-align: center;
+    font-size: 200%;
+    padding: 10px 10px;
+    margin-left: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--text-color); /*Cambia el color del texto dependiendo en que tema se encuentre (claro o obscuro)*/
+}
+
+.sidebar.close ~ .home{ /*Propiedades del contenedor al cerrar la barra*/
+    left: 88px;
+    width: calc(100% - 88px); /*Cálculo para determinar el valor de la propiedad ancho al cerrarse*/
+}
+
+/*=== REDES === */
+
+.red{ /*GENERAREMOS UNA RESPONSIVIDAD AL DESPLAZAR LA BARRA CON EL CONTENIDO*/
+    position: relative; /*Coloca el elemento en su posición normal, y a partir de ahí lo podemos desplazar la distancia que le indiquemos*/
+    left: 250px; /*Posición de la parte izquierda del elemento*/
+    height: 100vh; /*Dimensión alta del elemento*/
+    width: calc(100% - 250px); /*Cálculo para determinar el valor de la propiedad ancho*/
+    background:  var(--body-color);
+    transition: var(--tran-05); /*Tranisición del elemento (Contenedor) de 0.5 segundos*/
+}
+
+.red .text{
+    text-align: center;
+    color: var(--text-color); /*Cambia el color del texto dependiendo en que tema se encuentre (claro o obscuro)*/
+}
+
+.sidebar.close ~ .red{ /*Propiedades del contenedor al cerrar la barra*/
+    left: 88px;
+    width: calc(100% - 88px); /*Cálculo para determinar el valor de la propiedad ancho al cerrarse*/
+}
+
+  @media screen and (max-width: 850px) {
+    .sidebar{ /*Ancho de la barra al cerrar*/
+        width: 88px;
+    }
+    .sidebar ~ .home{ 
+        left: 88px;
+        width: calc(100% - 88px);
+    }
+    .sidebar .text{
+        opacity: 0;
+        font-size: 5px;
+    }
+    .btnBar{
+        display: none;
+    }
+    #imgHor{
+        height: 120px;
+    }
+  }

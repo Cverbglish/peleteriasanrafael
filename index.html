@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Link para tener accseso a los iconos de boxicons-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <title>Peletería San Rafael</title>
+	<link rel="icon" href="https://cverbglish.github.io/Imagenes/img_WPeleteria/PeleteriaSanRafa.ico">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="menu.css">
+	<script src="productosServices.js"></script>
+	<script src="Productos.js" defer></script>
+	<script src="jquery-3.2.1.js"></script>
+	<link rel="stylesheet" href="compras.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+
+    <!--Código del menú o barra de navegación en HTML-->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/SanRafaAc.png" alt=""> <!--Icono de la página en la barra de herramientas-->
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">San Rafael</span>
+                    <span class="profession">Peletería</span>
+                </div>
+            </div>
+
+            <div class="btnBar">
+				<i class="bx bx-chevron-right toggle"></i> <!--Icono-->
+			</div>
+        </header>
+
+        <!--Links o secciones-->
+        <div class="menu-bar">
+            <div class="menu2">
+                <li class="search-box"> <!--Etiqueta li (item list - Elemento de lista)-->
+                    <i class="bx bx-search icon"></i><input class="input" type="search" name="buscador" id="buscador" placeholder="Buscar..."> <!--Input genera controles para el navegante-->
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#"><i class="bx bx-home-alt icon"></i> <span class="text nav-text">Inicio</span></a> <!--Span ayuda a colocar un elemento en la misma linea que otro-->
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#prods"><i class="bx bx-box icon"></i> <span class="text nav-text">Productos</span></a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#carrito"><i class="bx bx-shopping-bag icon"></i> <span class="text nav-text">Carrito</span></a>
+                    </li>
+
+					<li class="nav-link">
+                        <a href="https://wa.me/524779108309?" target="_blank"><i class="fa fa-whatsapp icon"></i> <span class="text nav-text">Mensajes</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!--Fin de la lista de elementos-->
+
+            <div class="botton-content">
+                <!--Botón de salir-->
+                <li class="">
+                    <a href="https://google.com"><i class="bx bx-log-out icon"></i> <span class="text nav-text">Salir</span></a>
+                </li>
+
+                <!--Switch para el tema claro o oscuro-->
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class="bx bx-moon icon moon"></i>
+                        <i class="bx bx-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text">Modo oscuro</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!--Código después (página restante)-->
+    <section class="home" id="home">
+		<header id="inicio">
+			<div class="container-hero">
+				<div class="container hero">
+					<div class="customer-support">
+						<i  class="fa-solid fa-headset"></i>
+						<div class="content-customer-support">
+							<span class="text">Atención al cliente</span>
+							<span class="text">+52 477-718-7626</span>
+						</div>
+					</div>
+
+					<div class="container-logo">
+						<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/SanRafaAc.png" width="75" height="70" alt="">
+						<div class="contenido">
+							<h1 class="left">Peletería San Rafael</h1>
+						</div>
+					</div>
+
+					<div class="container-user">
+						<i class="fa-solid fa-user"></i>
+						<a href="#carrito"><i class="fa-solid fa-basket-shopping"></i><span id="cuenta-carrito">0</span></a>
+						<div class="content-shopping-cart">
+							<a href="#carrito"><span class="text">Carrito</span></a>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-navbar">
+				<nav class="navbar container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+						<li><a href="#inicio">Inicio</a></li>
+						<li><a href="#mjp">Mejores Productos</a></li>
+						<li><a href="#exclusivo">Más Vendido</a></li>
+						<li><a href="#prods">Todos los Productos</a></li>
+						<li><a href="#fot">Información</a></li>
+						<li><a href="#blog">Negocio</a></li>
+					</ul>
+
+					<form class="search-form">
+						<input type="search" name="bus" id="bus" placeholder="Buscar..." />
+						<a href="#prods" class="btn-search">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</a>
+					</form>
+				</nav>
+			</div>
+		</header>
+
+		<section class="banner">
+			<div class="content-banner">
+				<p class="p1">Productos de Calidad</p>
+				<h2>100% Garantizado <br /></h2>
+				<a href="#">Saber más</a>
+			</div>
+		</section>
+
+		<main class="main-content">
+			<section class="container container-features">
+				<div class="card-feature">
+					<i class="fa fa-map-marker"></i>
+					<div class="feature-content">
+						<span>Sucursal</span>
+						<p>Lago de Encinillas 129, Lomas de la Trinidad, 37300 León de los Aldama, Gto.</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa fa-whatsapp"></i>
+					<div class="feature-content">
+						<span>Pedidos por Whatsapp</span>
+						<p>Atenderemos tus pedidos por esta plataforma</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa fa-box"></i>
+					<div class="feature-content">
+						<span>Productos</span>
+						<p>Productos 100% garantizados</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa-solid fa-headset"></i>
+					<div class="feature-content">
+						<span>Atención al cliente 24/6</span>
+						<p>LLámenos 24/7 al +52-477-718-7626</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="container top-categories">
+				<h1 class="heading-1">Información</h1>
+				<div class="container-categories">
+					<div class="card-category category-nintendo">
+						<p>Mis Pedidos</p>
+						<a href="https://wa.me/524779108309?" target="_blank"><span>Ver</span></a>
+					</div>
+					<div class="card-category category-xbox">
+						<p>Ubicación</p>
+						<a href="https://maps.app.goo.gl/9M29PuHTiHoYm5iT7?g_st=iwb" target="_blank"><span>Ver</span></a>
+					</div>
+					<div class="card-category category-play">
+						<p>Redes Sociales</p>
+						<a href="#fot"><span>Ver</span></a>
+					</div>
+				</div>
+
+				
+
+			</section>
+
+			<section id="mjp" class="container top-products">
+				<h1 class="heading-1">Mejores Productos</h1>
+
+				<div class="container-options">
+					<section id="prod" class="category_list">
+						<a href="#mjp" class="category_item" category="all" ><span>Todo</span></a>
+						<a href="#mjp" class="category_item" category="act"><span>Activadores</span></a>
+						<a href="#mjp" class="category_item" category="ace"><span>Acetonas</span></a>
+						<a href="#mjp" class="category_item" category="cem"><span>Cementos</span></a>
+						<a href="#mjp" class="category_item" category="lij"><span>Lijas</span></a>
+					</section>
+				</div>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="product-item" category="act">
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Activador2.jpeg" alt="" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Activador 5300</h3>
+							<a href="#carrito">
+							<button class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</button>
+							</a>
+							<p class="price">$400.00</p>
+						</div>
+					</div>
+				</div>
+					
+					<div class="product-item" category="ace">
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Acetona1.jpg"
+								alt=""/>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Acetona E-COLL</h3>
+							<a href="#carrito">
+								<span class="add-cart">
+									<i class="fa-solid fa-basket-shopping"></i>
+								</span>
+							</a>
+							<p class="price">$60.50 </p>
+						</div>
+					</div>
+					</div>
+
+					<div class="product-item" category="lij">
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="https://cverbglish.github.io/Imagenes/img_WPeleteria/lijausognrl.jpg"
+								alt=""
+							/>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Lija de uso General</h3>
+							<a href="#carrito">
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							</a>
+							<p class="price">$20.00</p>
+						</div>
+					</div>
+					</div>
+					<!--  -->
+					<div class="product-item" category="cem">
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Cemento2.jpeg"
+							 alt="" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cemento AC1A</h3>
+							<a href="#carrito">
+								<span class="add-cart">
+									<i class="fa-solid fa-basket-shopping"></i>
+								</span>
+							</a>
+							<p class="price">$300.00</p>
+						</div>
+					</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="gallery">
+				<img
+					src="https://cverbglish.github.io/Imagenes/img_WPeleteria/img1.jpg"
+					alt="Gallery Img1"
+					class="gallery-img-1"
+				/><img
+					src="https://cverbglish.github.io/Imagenes/img_WPeleteria/img2.jpeg"
+					alt="Gallery Img2"
+					class="gallery-img-2"
+				/><img
+					src="https://cverbglish.github.io/Imagenes/img_WPeleteria/SanRafaAc.png"
+					alt="Gallery Img3"
+					class="gallery-img-3"
+				/><img
+					src="https://cverbglish.github.io/Imagenes/img_WPeleteria/img3.jpeg"
+					alt="Gallery Img4"
+					class="gallery-img-4"
+				/><img
+					src="https://cverbglish.github.io/Imagenes/img_WPeleteria/img4.jpg"
+					alt="Gallery Img5"
+					class="gallery-img-5"
+				/>
+			</section>
+
+			<section id="exclusivo" class="container specials">
+				<h1 class="heading-1">Más Vendido</h1>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Cemento2.jpeg"
+							 alt="" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cemento AC1A</h3>
+							<a href="#carrito">
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							</a>
+							<p class="price">$300.00</p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Halogenador1.jpeg"
+								alt=""
+							/>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Halogenador TRI-FLOW</h3>
+							<a href="#carrito">
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							</a>
+							<p class="price">$70.50</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Lijaagua.jpg"
+							 alt="" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Lija de Agua</h3>
+							<a href="#carrito">
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							</a>
+							<p class="price">$15.00 </p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/Acetona2.jpeg"
+							 alt="">
+							 <div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Acetona DEPILPLAS</h3>
+							<a href="#carrito">
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							</a>
+							<p class="price">$70.00</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--NEGOCIO-->
+			<section id="blog" class="container blogs">
+				<h1 class="heading-1">Negocio</h1>
+
+				<div class="container-blogs">
+					<div class="card-blog">
+						<div class="container-img">
+							<img id="imgHor" src="https://cverbglish.github.io/Imagenes/img_WPeleteria/horario.jpg" alt="Imagen Blog 1" height="250px" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Horarios</h3>
+							<span>Semanal</span>
+							<p>
+								• Domingo: Cerrado. <br>
+								• Lunes: 8:00 a.m. - 8:00 p.m. <br>
+								• Martes: 8:00 a.m. - 8:00 p.m. <br>
+								• Miercoles: 8:00 a.m. - 8:00 p.m. <br>
+								• Jueves: 8:00 a.m. - 8:00 p.m. <br>
+								• Viernes: 8:00 a.m. - 8:00 p.m. <br>
+								• Sabado: 8:00 a.m. - 3:00 p.m. <br>
+							</p>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/negocioimg.jpg" alt="Imagen Blog 2" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Dedicación</h3>
+							<span>1955 - 2024</span>
+							<p>
+								Somos una peletería con muchos años de experiencia, que ofrece un extenso surtido en productos y materiales para la industria de la marroquinería, calzado y talabartería en León, Guanajuato.
+							</p>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/atender.jpg" alt="Imagen Blog 3" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Despacho</h3>
+							<span>¿Cómo atendemos?</span>
+							<p>
+								Al enviarnos tu pedido mediante WhatsApp, nosotros 
+								comprobaremos la información enviada y se le comunicara 
+								si el pedido fue aceptado o no. Continuamente enviaremos la 
+								ubicación de nuestra Sucursal para que usted pase por sus productos.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--COMPRAS-->
+			<h1 id="prods" class="heading-1">Todos los Productos</h1>
+			<section class="contenedor">
+				<!-- Contenedor de elementos -->
+				<section id="contenedor-items" class="contenedor-items">
+					
+					<!--PRODUCTOS-->
+
+				</section>
+				<!-- Carrito de Compras -->
+				<div class="carrito" id="carrito">
+					<div class="header-carrito">
+						<h2>Tu Carrito</h2>
+						
+					</div>
+					<!--ITEMS DEL CARRITO-->
+					<div class="carrito-items">
+						
+					</div>
+					<div id="pagar" class="carrito-total" target="_blank">
+						<div class="fila">
+							<strong>Tu Total:</strong>
+							<span class="carrito-precio-total">
+								$0
+							</span>
+						</div>
+						<button class="btn-pagar">Enviar Pedido <i class="fa-solid fa-paper-plane"></i> </button>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer id="fot" class="footer">
+			<div class="container container-footer">
+				<div class="menu-footer">
+					<div class="contact-info">
+						<p class="title-footer">Información de Contacto</p>
+						<ul>
+							<li>
+								Dirección: Lago de Encinillas 129, Lomas de la Trinidad, 37300 León de los Aldama, Gto.
+							</li>
+							<li>Teléfono: +52 477-718-7626</li>
+							<li>EmaiL: peleteriasanrafael3@gmail.com</li>
+						</ul>
+						<div class="wrapper">
+							<span class="icon facebook" id="faceP">
+								<span class="tooltip">Facebook</span>
+								<span><i class="fab fa-facebook-f"></i></span>
+							</span>
+							<span class="icon x" id="xP">
+								<span class="tooltip">X</span>
+								<span><i class="fab fa-x"></i></span>
+							</span>
+							<span class="icon youtube" id="youP">
+								<span class="tooltip">YouTube</span>
+								<span><i class="fab fa-youtube"></i></span>
+							</span>
+							<span class="icon whats" id="whaP">
+								<span class="tooltip">WhatsApp</span>
+								<span><i class="fab fa-whatsapp"></i></span>
+							</span>
+							<span class="icon instagram" id="insP">
+								<span class="tooltip">Instagram</span>
+								<span><i class="fab fa-instagram"></i></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="information">
+						<p class="title-footer">Información</p>
+						<ul>
+							<li><a href="#">Acerca de Nosotros</a></li>
+							<li><a href="#">Politicas de Privacidad</a></li>
+							<li><a href="#">Términos y condiciones</a></li>
+							<li><a href="#">Contactános</a></li>
+						</ul>
+					</div>
+
+					<div class="my-account">
+						<p class="title-footer">Mi cuenta</p>
+
+						<ul>
+							<li><a href="#">Mi cuenta</a></li>
+							<li><a href="#">Historial de ordenes</a></li>
+							<li><a href="#">Lista de deseos</a></li>
+						</ul>
+					</div>
+
+					<div class="newsletter">
+						<p class="title-footer">Info</p>
+
+						<div class="content">
+							<p>
+								Siguemos en todas nuestras redes sociales
+							</p>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="copyright">
+					<img src="https://cverbglish.github.io/Imagenes/img_WPeleteria/payment.png" alt="Pagos">
+				</div>
+			</div>
+		</footer>
+
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+
+		<!--NOTIFY-->
+		<div class="contenedor-toast" id="contenedor-toast">	</div>
+
+	<script src="carrito.js"></script>
+    <script src="java.js"></script>
+</body>
+</html>
