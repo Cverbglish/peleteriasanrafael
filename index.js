@@ -5,7 +5,7 @@ const cors = require("cors");
 
 // Configuración inicial
 const app = express();
-const PORT = 8080;; // Obtén el puerto del entorno o usa el puerto 8080 por defecto
+const PORT = process.env.PORT || 8080;; // Obtén el puerto del entorno o usa el puerto 8080 por defecto
 
 // Middlewares
 app.use(cors({
